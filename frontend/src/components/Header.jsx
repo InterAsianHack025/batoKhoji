@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import moreIcon from "../assets/icon-more.png";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 const Header = () => {
-   const { t, i18n } = useTranslation();
-  const [showSidebar, setShowSidebar] = useState(false);
-  const { t, i18n } = useTranslation(); //harina
+  //  const { t, i18n } = useTranslation();
   const [showSidebar, setShowSidebar] = useState(false);
 
-  // const [language, setLanguage] = useState("English");
 
-  // const toggleLanguage = () => {
-  //   setLanguage((prev) => (prev === "English" ? "नेपाली" : "English"));
-  //   i18n.changeLanguage(newLang);//harina
-  // };
+  const [language, setLanguage] = useState("English");
+
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "English" ? "नेपाली" : "English"));
+    i18n.changeLanguage(newLang);//harina
+  };
 
   // Toggle between English and Nepali
   const toggleLanguage = () => {
@@ -22,25 +21,25 @@ const Header = () => {
     i18n.changeLanguage(newLang);
   };
 
-  // // Text dictionary for both languages
-  // const texts = {
-  //   English: {
-  //     title: "BatoVetiyo",
-  //     tagline: "I was lost, now I found the way",
-  //     button: "English",
-  //     moreAlt: "More",
-  //     logoAlt: "Logo",
-  //   },
-  //   नेपाली: {
-  //     title: "बाटो भेटियो",
-  //     tagline: "म हराएको थिएँ, अब बाटो भेटें",
-  //     button: "नेपाली",
-  //     moreAlt: "थप",
-  //     logoAlt: "लोगो",
-  //   },
-  // };
+  // Text dictionary for both languages
+  const texts = {
+    English: {
+      title: "BatoVetiyo",
+      tagline: "I was lost, now I found the way",
+      button: "English",
+      moreAlt: "More",
+      logoAlt: "Logo",
+    },
+    नेपाली: {
+      title: "बाटो भेटियो",
+      tagline: "म हराएको थिएँ, अब बाटो भेटें",
+      button: "नेपाली",
+      moreAlt: "थप",
+      logoAlt: "लोगो",
+    },
+  };
 
-  // const t = texts[language];
+  const t = texts[language];
 
 //language toogle key
  const toggleLanguage = () => {
