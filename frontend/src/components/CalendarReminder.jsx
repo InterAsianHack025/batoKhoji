@@ -9,8 +9,7 @@ const CalendarReminder = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [tripName, setTripName] = useState("");
   const [note, setNote] = useState("");
-  const [reminders, setReminders] = useState({}); // { 'Tue Sep 02 2025': [{tripName, note}] }
-
+  const [reminders, setReminders] = useState({}); 
   const addReminder = () => {
     if (!tripName.trim()) return;
 

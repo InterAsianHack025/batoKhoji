@@ -26,7 +26,7 @@ const LiveBusTracking = () => {
   const mapRef = useRef(null);
   const intervalRef = useRef(null);
 
-  // Mock bus data - replace with real API
+
   const mockBuses = [
     {
       id: "bus_25",
@@ -127,7 +127,7 @@ const LiveBusTracking = () => {
     intervalRef.current = setInterval(() => {
       updateBusPositions();
       setLastUpdated(new Date());
-    }, 5000); // Update every 5 seconds
+    }, 5000); 
   };
 
   const stopTracking = () => {
@@ -142,12 +142,12 @@ const LiveBusTracking = () => {
       prevBuses.map((bus) => {
         // Simulate bus movement
         const speedKmh = bus.speed;
-        const speedMs = (speedKmh * 1000) / 3600; // Convert to m/s
+        const speedMs = (speedKmh * 1000) / 3600; 
         const timeInterval = 5; // 5 seconds
-        const distance = speedMs * timeInterval; // Distance in meters
+        const distance = speedMs * timeInterval; 
 
         if (bus.status === "moving" && speedKmh > 0) {
-          // Simple simulation - move bus slightly based on heading
+
           const deltaLat =
             (distance / 111000) * Math.cos((bus.heading * Math.PI) / 180);
           const deltaLng =
@@ -160,7 +160,7 @@ const LiveBusTracking = () => {
               lng: bus.currentLocation.lng + deltaLng,
             },
             lastUpdate: new Date(),
-            // Randomly update occupancy
+        
             occupancy: Math.max(
               5,
               Math.min(

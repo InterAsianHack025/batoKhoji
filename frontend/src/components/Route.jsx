@@ -21,14 +21,81 @@ const RoutePage = () => {
   const [route, setRoute] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [buses, setBuses] = useState([]);
+  const [userLocation, setUserLocation] = useState(null);
+  const [selectedBus, setSelectedBus] = useState(null);
   
   // Get from/to from state if available
   const { selectedRoute, from, to } = location.state || {};
 
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          });
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+          // Default to Kathmandu center if location not available
+          setUserLocation({
+            latitude: 27.7172,
+            longitude: 85.3240
+          });
+        }
+      );
+    } else {
+      // Default location
+      setUserLocation({
+        latitude: 27.7172,
+        longitude: 85.3240
+      });
+    }
+  };
+
+  const calculateDistance = (lat1, lng1, lat2, lng2) => {
+    const R = 6371; // Radius of the earth in km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+      Math.sin(dLng/2) * Math.sin(dLng/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const distance = R * c; // Distance in km
+    return distance;
+  };
+
   useEffect(() => {
+    getUserLocation();
+    
     // If we have selectedRoute from state, use it
     if (selectedRoute && selectedRoute.id === parseInt(id)) {
-      setRoute(selectedRoute);
+      // Format the route data if not already formatted
+      let formattedSelectedRoute = selectedRoute;
+      if (!selectedRoute.stopsDetails) {
+        const stops = selectedRoute.stops || [];
+        const stopsDetails = stops.map((stop, i) => ({
+          name: stop.name,
+          name_nepali: stop.nameNepali,
+          latitude: stop.lat,
+          longitude: stop.lng,
+        }));
+        
+        formattedSelectedRoute = {
+          ...selectedRoute,
+          busName: selectedRoute.bus_number,
+          routeName: selectedRoute.route,
+          stopsDetails,
+          fare: selectedRoute.fare || Math.floor(Math.random() * 100) + 50,
+          estimatedTime: selectedRoute.estimatedTime || Math.floor(Math.random() * 60) + 30
+        };
+      }
+      
+      setRoute(formattedSelectedRoute);
+      fetchBuses(selectedRoute.id);
       setLoading(false);
       return;
     }
@@ -42,23 +109,25 @@ const RoutePage = () => {
           
           if (foundRoute) {
             // Format the route data
-            const stopsNames = foundRoute.route.split("↔").map((s) => s.trim());
-            const stopsDetails = stopsNames.map((stop, i) => ({
-              name: stop,
-              latitude: foundRoute.latitude + i * 0.005,
-              longitude: foundRoute.longitude + i * 0.005,
+            const stops = foundRoute.stops || [];
+            const stopsDetails = stops.map((stop, i) => ({
+              name: stop.name,
+              name_nepali: stop.nameNepali,
+              latitude: stop.lat,
+              longitude: stop.lng,
             }));
             
             const formattedRoute = {
               ...foundRoute,
               busName: foundRoute.bus_number,
-              routeName: `${stopsNames[0]} → ${stopsNames[stopsNames.length - 1]}`,
+              routeName: foundRoute.route,
               stopsDetails,
-              fare: Math.floor(Math.random() * 100) + 50,
-              estimatedTime: Math.floor(Math.random() * 60) + 30
+              fare: foundRoute.fare || Math.floor(Math.random() * 100) + 50,
+              estimatedTime: foundRoute.estimatedTime || Math.floor(Math.random() * 60) + 30
             };
             
             setRoute(formattedRoute);
+            fetchBuses(foundRoute.id);
           } else {
             setError("Route not found");
           }
@@ -75,6 +144,17 @@ const RoutePage = () => {
 
     fetchRoute();
   }, [id, selectedRoute]);
+
+  const fetchBuses = async (routeId) => {
+    try {
+      const response = await axios.get(`http://localhost:5001/api/route/${routeId}/buses`);
+      if (response.data.success) {
+        setBuses(response.data.data);
+      }
+    } catch (err) {
+      console.error("Error fetching buses:", err);
+    }
+  };
 
   const handleViewOnMap = () => {
     navigate('/map', { 
@@ -186,7 +266,7 @@ const RoutePage = () => {
             <div className="text-center p-3 bg-gray-50 rounded-lg">
               <FontAwesomeIcon icon={faRoute} className="text-purple-500 mb-2" />
               <div className="text-sm text-gray-600">Stops</div>
-              <div className="font-semibold text-gray-800">{route.stopsDetails.length}</div>
+              <div className="font-semibold text-gray-800">{route.stopsDetails ? route.stopsDetails.length : 0}</div>
             </div>
           </div>
 
@@ -211,15 +291,93 @@ const RoutePage = () => {
           </button>
         </div>
 
+        {/* Nearby Buses */}
+        {buses.length > 0 && (
+          <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+            <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
+              <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-blue-500" />
+              Nearby Buses on This Route ({buses.length})
+            </h3>
+
+            <div className="">
+              {buses.map((bus) => {
+                const distance = userLocation ? calculateDistance(
+                  userLocation.latitude, 
+                  userLocation.longitude, 
+                  bus.latitude, 
+                  bus.longitude
+                ) : null;
+
+                return (
+                  <div
+                    key={bus.id}
+                    onClick={() => setSelectedBus(bus)}
+                    className={`p-4 rounded-lg border-2 transition-all cursor-pointer ${
+                      selectedBus && selectedBus.id === bus.id 
+                        ? 'bg-blue-50 border-blue-300' 
+                        : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-3">
+                          {bus.bus_number}
+                        </div>
+                        <div>
+                          <div className="font-semibold text-gray-800">
+                            Bus {bus.bus_number}
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            Near: {i18n.language === 'ne' ? bus.current_stop_nepali : bus.current_stop}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            Direction: {bus.direction}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        {distance !== null && (
+                          <div className="text-sm font-semibold text-blue-600">
+                            {distance < 1 ? `${(distance * 1000).toFixed(0)}m` : `${distance.toFixed(1)}km`}
+                          </div>
+                        )}
+                        <div className="text-xs text-gray-500">
+                          Lat: {bus.latitude.toFixed(4)}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          Lng: {bus.longitude.toFixed(4)}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {selectedBus && selectedBus.id === bus.id && (
+                      <div className="mt-3 p-3 bg-blue-100 rounded-lg">
+                        <h4 className="font-semibold text-blue-800 mb-2">Bus Details</h4>
+                        <div className="text-sm text-blue-700">
+                          <div>Current Location: {i18n.language === 'ne' ? bus.current_stop_nepali : bus.current_stop}</div>
+                          <div>Direction: {bus.direction}</div>
+                          {distance !== null && (
+                            <div>Distance from you: {distance < 1 ? `${(distance * 1000).toFixed(0)}m` : `${distance.toFixed(1)}km`}</div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Stops List */}
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
             <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-red-500" />
-            All Stops ({route.stopsDetails.length})
+            All Stops ({route.stopsDetails ? route.stopsDetails.length : 0})
           </h3>
 
           <div className="space-y-3">
-            {route.stopsDetails.map((stop, index) => {
+            {route.stopsDetails && route.stopsDetails.map((stop, index) => {
               const isFromStop = from && (stop.name.toLowerCase().includes(from.toLowerCase().trim()) || stop.name_nepali.includes(from.trim()));
               const isToStop = to && (stop.name.toLowerCase().includes(to.toLowerCase().trim()) || stop.name_nepali.includes(to.trim()));
               const isHighlighted = isFromStop || isToStop;
@@ -235,7 +393,7 @@ const RoutePage = () => {
                 >
                   <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-sm mr-3">
                     <span className="text-lg">
-                      {getStopIcon(stop.name, index, route.stopsDetails.length)}
+                      {getStopIcon(stop.name, index, route.stopsDetails ? route.stopsDetails.length : 0)}
                     </span>
                   </div>
 
@@ -256,7 +414,7 @@ const RoutePage = () => {
 
                   <div className="text-right text-xs text-gray-500">
                     {index === 0 && <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Start</span>}
-                    {index === route.stopsDetails.length - 1 && <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium">End</span>}
+                    {route.stopsDetails && index === route.stopsDetails.length - 1 && <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium">End</span>}
                   </div>
                 </div>
               );
@@ -271,14 +429,14 @@ const RoutePage = () => {
                 <div className="flex justify-between items-center">
                   <span>Distance:</span>
                   <span className="font-medium">
-                    {Math.abs(
+                    {route.stopsDetails ? Math.abs(
                       route.stopsDetails.findIndex(s => 
-                        s.name.toLowerCase().includes(to.toLowerCase().trim()) || s.name_nepali.includes(to.trim())
+                        s.name.toLowerCase().includes(to.toLowerCase().trim()) || (s.name_nepali && s.name_nepali.includes(to.trim()))
                       ) - 
                       route.stopsDetails.findIndex(s => 
-                        s.name.toLowerCase().includes(from.toLowerCase().trim()) || s.name_nepali.includes(from.trim())
+                        s.name.toLowerCase().includes(from.toLowerCase().trim()) || (s.name_nepali && s.name_nepali.includes(from.trim()))
                       )
-                    )} stops
+                    ) : 0} stops
                   </span>
                 </div>
                 <div className="flex justify-between items-center mt-1">
