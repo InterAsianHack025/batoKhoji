@@ -22,18 +22,18 @@ const RoutePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  // Helps to get from/to from state if available
+  // Get from/to from state if available
   const { selectedRoute, from, to } = location.state || {};
 
   useEffect(() => {
-    //  selectedRoute from state
+    // If we have selectedRoute from state, use it
     if (selectedRoute && selectedRoute.id === parseInt(id)) {
       setRoute(selectedRoute);
       setLoading(false);
       return;
     }
 
-    // fetching from API
+    // Otherwise fetch from API
     const fetchRoute = async () => {
       try {
         const response = await axios.get("http://localhost:5001/api/buses");
@@ -41,7 +41,7 @@ const RoutePage = () => {
           const foundRoute = response.data.data.find(bus => bus.id === parseInt(id));
           
           if (foundRoute) {
-            // Formating the route data
+            // Format the route data
             const stopsNames = foundRoute.route.split("↔").map((s) => s.trim());
             const stopsDetails = stopsNames.map((stop, i) => ({
               name: stop,

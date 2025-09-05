@@ -13,7 +13,7 @@ import RecentTrips from "./components/RecentTrips";
 import { useTranslation } from "react-i18next";
 
 
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import Map from "./pages/Map";
 import RoutesPage from "./pages/Routes";
 
@@ -26,6 +26,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<RecentTrips />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/routes" element={<RoutesPage />} />
 
         <Route path="/route-planner" element={<RoutePlanner />} />
         <Route path="/calendar-reminder" element={<CalendarReminder />} />

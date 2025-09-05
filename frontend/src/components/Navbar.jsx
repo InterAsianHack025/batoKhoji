@@ -1,7 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faMap, faRoute, faBell } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faMap,
+  faRoute,
+  faBell,
+} from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
@@ -12,7 +17,11 @@ const Navbar = () => {
     { path: "/", icon: faHome, label: t("Home") || "Home" },
     { path: "/map", icon: faMap, label: t("Map") || "Map" },
     { path: "/routes", icon: faRoute, label: t("Routes") || "Routes" },
-    { path: "/notification", icon: faBell, label: t("Notification") || "Notification" },
+    {
+      path: "/notification",
+      icon: faBell,
+      label: t("Notification") || "Notification",
+    },
   ];
 
   return (
