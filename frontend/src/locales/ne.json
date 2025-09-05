@@ -1,6 +1,13 @@
 {
   "header": {
-    "appName": "बाटो भेटियो",
-    "languageToggle": "नेपाली"
+    "title": "बाटो भेटियो",
+    "tagline": "म हराएको थिएँ, अब बाटो भेटें",
+    "button": "नेपाली",
+    "moreAlt": "थप",
+    "logoAlt": "लोगो",
+    "menu": "मेनु",
+    "about": "बारेमा",
+    "services": "सेवाहरू",
+    "contact": "सम्पर्क"
   }
 }

@@ -1,6 +1,13 @@
 {
-  "header": {
-    "appName": "batoVetiyo",
-    "languageToggle": "English"
+ "header": {
+    "title": "batoVetiyo",
+    "tagline": "I was lost, now I found the way",
+    "button": "English",
+    "moreAlt": "More",
+    "logoAlt": "Logo",
+    "menu": "Menu",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
   }
 }
