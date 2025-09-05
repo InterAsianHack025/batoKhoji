@@ -1,29 +1,15 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import moreIcon from "../assets/icon-more.png";
-<<<<<<< HEAD
 
 const Header = () => {
-=======
-import { useTranslation } from "react-i18next";
-
-const Header = () => {
-   const { t, i18n } = useTranslation();
->>>>>>> 2b2f576 (language toggle)
   const [showSidebar, setShowSidebar] = useState(false);
   const [language, setLanguage] = useState("English");
 
-<<<<<<< HEAD
   // Single toggleLanguage function
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "English" ? "नेपाली" : "English"));
   };
-=======
-  // const toggleLanguage = () => {
-  //   setLanguage((prev) => (prev === "English" ? "नेपाली" : "English"));
-  //   i18n.changeLanguage(newLang);//harina
-  // };
->>>>>>> 2b2f576 (language toggle)
 
   // Text dictionary
   const texts = {
