@@ -1,6 +1,6 @@
 {
   "header": {
-    "title": "batoVetiyo",
+    "title": "BatoVetiyo",
     "tagline": "I was lost, now I found the way",
     "button": "English",
     "moreAlt": "More",
@@ -8,13 +8,8 @@
     "menu": "Menu",
     "about": "About",
     "services": "Services",
-    "contact": "Contact",
-    "settings": "Settings",
-    "help": "Help",
-    "feedback": "Feedback",
-    "profile": "Profile"
+    "contact": "Contact"
   },
-
   "navbar": {
     "home": "Home",
     "map": "Map",
@@ -25,7 +20,6 @@
     "calendarReminder": "Calendar Reminder",
     "savedPlace": "Saved Places"
   },
-
   "pages": {
     "home": "Home",
     "map": "Map",
@@ -37,7 +31,6 @@
     "calendarReminder": "Calendar Reminder",
     "savedPlace": "Saved Places"
   },
-
   "quickActions": {
     "title": "Quick Actions",
     "liveBus": "Live Bus Tracking",
@@ -58,14 +51,12 @@
     "route3": "Bhaktapur - Ratna Park",
     "fare3": "Rs. 25-40"
   },
-
   "routePlanner": {
     "title": "Route Planner",
-    "currentLocation": "Current Location",
+    "currentLocation": "Current location",
     "destination": "Destination",
     "findRoute": "Find Route"
   },
-
   "routes": {
     "allBusRoutes": "All Bus Routes",
     "searchPlaceholder": "Search routes, bus numbers, or stops...",
@@ -88,107 +79,6 @@
     "availableRoutes": "Available Routes",
     "loadingRoutes": "Loading routes...",
     "findingRoutes": "Finding best routes for you"
-  },
-
-  "menubar": {
-    "about": {
-      "title": "About Us",
-      "app_info": "Who We Are",
-      "description": "Bato Vetiyo is a smart bus tracking and route information platform built to make daily commuting easier, faster, and more reliable. With real-time bus tracking, intelligent route planning, and instant alerts, we bring simplicity and convenience to public transportation.",
-
-      "features": "What We Do",
-      "feature1": "🚍 Live bus tracking",
-      "feature2": "📍 Smart route planning",
-      "feature3": "🔔 Instant travel notifications",
-      "feature4": "📊 Personalized trip history",
-
-      "team": "Our Mission",
-      "team_description": "We are a passionate team of innovators and engineers dedicated to transforming the way people travel in cities. Our mission is to make public transportation more transparent, reliable, and accessible for everyone."
-    },
-
-    "contact": {
-      "title": "Contact Us",
-      "get_in_touch": "Get in Touch",
-      "send_message": "Send a Message",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "send_button": "Send",
-      "message_sent": "Your message has been sent successfully!"
-    },
-
-    "settings": {
-      "title": "Settings",
-      "language": "Language",
-      "notifications": "Notifications",
-      "theme": "Theme",
-      "auto_refresh": "Auto Refresh",
-      "enable_notifications": "Enable Notifications",
-      "dark_mode": "Enable Dark Mode",
-      "enable_auto_refresh": "Enable Auto Refresh"
-    },
-
-    "help": {
-      "title": "Help & Support",
-      "faq_title": "Frequently Asked Questions",
-      "faq1_question": "How can I find nearby bus stops?",
-      "faq1_answer": "You can use the map or route planner to view all nearby bus stops from your current location.",
-      "faq2_question": "Can I use batoVetiyo offline?",
-      "faq2_answer": "Some features like saved routes and reminders work offline, but live bus tracking requires an internet connection.",
-      "faq3_question": "How do I change the language?",
-      "faq3_answer": "Go to Settings > Language and choose English or Nepali.",
-      "faq4_question": "Is the app free to use?",
-      "faq4_answer": "Yes, batoVetiyo is completely free to use with no hidden charges.",
-      "need_more_help": "Need more help?",
-      "contact_support": "If your question is not listed above, feel free to contact our support team for assistance.",
-      "contact_button": "Contact Support"
-    },
-
-    "feedback": {
-      "title": "Feedback",
-      "description": "We value your feedback! Please share your thoughts to help us improve batoVetiyo.",
-      "rating": "Rating",
-      "category": "Category",
-      "select_category": "Select a category",
-      "bug_report": "Bug Report",
-      "feature_request": "Feature Request",
-      "improvement": "Improvement",
-      "general_feedback": "General Feedback",
-      "message": "Message",
-      "message_placeholder": "Write your feedback here...",
-      "email": "Email",
-      "email_placeholder": "Your email address",
-      "optional": "(Optional)",
-      "submit_button": "Submit Feedback",
-      "thank_you": "Thank you for your feedback!"
-    },
-
-    "services": {
-      "title": "Our Services",
-      "route_planning": "Route Planning",
-      "route_planning_desc": "Plan your journey efficiently with real-time suggested bus routes from your current location to your destination.",
-      "real_time_tracking": "Real-time Bus Tracking",
-      "real_time_tracking_desc": "Track buses live on the map so you know exactly when your bus will arrive.",
-      "schedule_info": "Schedule Information",
-      "schedule_info_desc": "Get accurate bus schedules and estimated travel times for a stress-free commute.",
-      "offline_access": "Offline Access",
-      "offline_access_desc": "Access saved routes and reminders even without an internet connection."
-    },
-
-    "profile": {
-      "title": "Account Center",
-      "account_details": "Account Details",
-      "name": "Full Name",
-      "email": "Email",
-      "phone": "Phone",
-      "location": "Location",
-      "edit_button": "Edit Profile",
-      "save_button": "Save Changes",
-      "saved": "Profile saved successfully!",
-      "preferences": "Preferences",
-      "preferences_desc": "Manage your app preferences, notifications, and language settings.",
-      "security": "Security",
-      "logout": "Logout"
-    }
   }
 }
+

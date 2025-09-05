@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
   MapPin,
@@ -16,7 +15,6 @@ import { useTranslation } from "react-i18next";
 
 
 const LiveBusTracking = () => {
-  const navigate = useNavigate();
   const [selectedBus, setSelectedBus] = useState(null);
   const [buses, setBuses] = useState([]);
   const [isTracking, setIsTracking] = useState(false);
@@ -28,7 +26,7 @@ const LiveBusTracking = () => {
   const mapRef = useRef(null);
   const intervalRef = useRef(null);
 
-
+  // Mock bus data - replace with real API
   const mockBuses = [
     {
       id: "bus_25",
@@ -410,15 +408,15 @@ const LiveBusTracking = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b top-0 z-20 relative">
+      <div className="bg-white shadow-sm border-b sticky top-0 z-40">
         <div className="max-w-md mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <button
-                onClick={() => navigate(-1)}
-                className="absolute top-6 left-5 text-green-600 font-semibold hover:text-green-800 z-50"
+                onClick={() => window.history.back()}
+                className="p-1 hover:bg-gray-100 rounded-full"
               >
-                &larr; Back
+                <ArrowLeft className="w-5 h-5 text-gray-600" />
               </button>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">

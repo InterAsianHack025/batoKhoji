@@ -1,1 +1,28 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+
+/* Map specific styling */
+#map {
+    height: 100vh; 
+    width: 100%;
+    z-index: 1;
+  }
+
+/* Full screen map for map page */
+#page-map #map {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+}
+
+/* Search overlay styling */
+#mapSearchInput {
+    transition: all 0.2s ease;
+}
+
+#mapSearchInput:focus {
+    outline: none;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    transform: translateY(-1px);
+}
