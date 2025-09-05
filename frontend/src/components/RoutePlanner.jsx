@@ -11,7 +11,7 @@ const RoutePlanner = () => {
   }, []);
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 mb-6 mx-auto max-w-xl">
+    <div className="bg-white rounded-2xl shadow-sm p-6 mb-6 mt-3 mx-auto max-w-xl">
       {/* Header */}
       <div className="flex items-center mb-4">
         <FontAwesomeIcon
