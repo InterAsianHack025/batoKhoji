@@ -7,6 +7,6 @@ import RoutePage from "./components/Route";
 import RoutePlanner from "./components/RoutePlanner";
 import CalendarReminder from "./components/CalendarReminder";
 import SavedPlace from "./components/SavedPlace";
-import ChatWidget from "./components/ChatWidget";
+
 import LiveBusTracking from "./components/LiveBusTracking";
 import RecentTrips from "./components/RecentTrips";

@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import logo from "../assests/logo.png";
 import moreIcon from "../assests/icon-more.png";
-import { useTranslation } from "react-i18next";
 
-const Header = () => {
-  const { t, i18n } = useTranslation();
-  const [showSidebar, setShowSidebar] = useState(false);
 
-  
-  const toggleLanguage = () => {
-    const newLang = i18n.language === "en" ? "ne" : "en";
-    i18n.changeLanguage(newLang);
-  };
+
 navbar.home
   
   return (
@@ -87,6 +79,6 @@ navbar.home
       </div>
     </header>
   );
-};
+;
 
 export default Header;
