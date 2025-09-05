@@ -50,24 +50,32 @@ const RoutePlanner = () => {
       </div>
 
       {/* Form commented out */}
-      
+
       {/* <form onSubmit={handleSubmit}> */}
       <form>
         <div className="space-y-4">
           <div className="relative">
-            <input type="text" placeholder="Current Location" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" disabled />
+            <input
+              type="text"
+              placeholder="Current Location"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
           </div>
           <div className="relative">
-            <input type="text" placeholder="Destination" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" disabled />
+            <input
+              type="text"
+              placeholder="Destination"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
           </div>
-          <button type="submit" className="w-full bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-700" disabled>
+          <button
+            type="submit"
+            className="w-full bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-700"
+          >
             Submit
           </button>
         </div>
       </form>
-     
-      
-      <p className="text-gray-500 text-sm">Route planner is temporarily disabled.</p>
     </div>
   );
 };

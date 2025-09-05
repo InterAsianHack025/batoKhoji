@@ -3,15 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import QuickActions from "./components/ QuickActions";
+import QuickActions from "./components/QuickActions";
 import RoutePlanner from "./components/RoutePlanner";
 import CalendarReminder from "./components/CalendarReminder";
 import SavedPlace from "./components/SavedPlace";
 import LiveBusTracking from "./components/LiveBusTracking";
 import RecentTrips from "./components/RecentTrips";
-import Map from "./pages/Map";
 
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Map from "./pages/Map";
 import RoutesPage from "./pages/Routes";
 
