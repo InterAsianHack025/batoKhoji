@@ -1,9 +1,6 @@
 {
   "dependencies": {
-<<<<<<< HEAD
     "node": "^20.19.5",
-=======
->>>>>>> ae8e979d4f780ecf404c96f28825c6d1465c1767
     "axios": "^1.11.0",
     "socket.io-client": "^4.8.1"
   }
