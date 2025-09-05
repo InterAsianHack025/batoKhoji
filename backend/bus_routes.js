@@ -1,0 +1,62 @@
+const busStops = [
+    { id: 1, name: "Ratnapark", nameNepali: "रत्नपार्क", lat: 27.7075, lng: 85.3158, facilities: ["shelter", "seating", "lighting"] },
+    { id: 2, name: "New Baneshwor", nameNepali: "नयाँ बानेश्वर", lat: 27.6900, lng: 85.3372, facilities: ["shelter", "seating"] },
+    { id: 3, name: "Koteshwor", nameNepali: "कोटेश्वर", lat: 27.6764, lng: 85.3486, facilities: ["shelter", "lighting"] },
+    { id: 4, name: "Kalanki", nameNepali: "कलंकी", lat: 27.6929, lng: 85.2867, facilities: ["shelter", "seating", "lighting"] },
+    { id: 5, name: "Pulchowk", nameNepali: "पुल्चोक", lat: 27.6786, lng: 85.3178, facilities: ["shelter"] },
+    { id: 6, name: "Lagankhel", nameNepali: "लगनखेल", lat: 27.6667, lng: 85.3244, facilities: ["shelter", "seating"] },
+    { id: 7, name: "Sundhara", nameNepali: "सुन्धारा", lat: 27.7041, lng: 85.3125, facilities: ["shelter", "seating"] },
+    { id: 8, name: "Gongabu", nameNepali: "गोंगबु", lat: 27.7342, lng: 85.3171, facilities: ["shelter", "lighting"] },
+    { id: 9, name: "Balaju", nameNepali: "बालाजु", lat: 27.7281, lng: 85.2975, facilities: ["shelter", "seating"] },
+    { id: 10, name: "Maitighar", nameNepali: "मैतीघर", lat: 27.6936, lng: 85.3206, facilities: ["shelter", "seating"] },
+    { id: 11, name: "Jawalakhel", nameNepali: "जावलाखेल", lat: 27.6736, lng: 85.3172, facilities: ["shelter", "seating"] },
+    { id: 12, name: "Satdobato", nameNepali: "सातदोबाटो", lat: 27.6587, lng: 85.3247, facilities: ["shelter", "seating"] },
+    { id: 13, name: "Bhaktapur", nameNepali: "भक्तपुर", lat: 27.6710, lng: 85.4298, facilities: ["shelter", "seating"] },
+    { id: 14, name: "Chabahil", nameNepali: "चाबहिल", lat: 27.7215, lng: 85.3442, facilities: ["shelter", "seating"] },
+    { id: 15, name: "Gaushala", nameNepali: "गौशाला", lat: 27.7058, lng: 85.3420, facilities: ["shelter", "seating"] },
+    { id: 16, name: "Kalimati", nameNepali: "कालिमाटी", lat: 27.6972, lng: 85.2982, facilities: ["shelter", "seating"] },
+    { id: 17, name: "Teku", nameNepali: "टेकु", lat: 27.6931, lng: 85.3078, facilities: ["shelter", "seating"] },
+    { id: 18, name: "Tripureshwor", nameNepali: "त्रिपुरेश्वर", lat: 27.6939, lng: 85.3120, facilities: ["shelter", "seating"] },
+    { id: 19, name: "Kalopul", nameNepali: "कालोपुल", lat: 27.7175, lng: 85.3333, facilities: ["shelter", "seating"] },
+    { id: 20, name: "Samakhusi", nameNepali: "समाखुसी", lat: 27.7287, lng: 85.3129, facilities: ["shelter", "seating"] },
+    { id: 21, name: "Balkhu", nameNepali: "बल्खु", lat: 27.6842, lng: 85.2946, facilities: ["shelter", "seating"] },
+    { id: 22, name: "Kirtipur", nameNepali: "कीर्तिपुर", lat: 27.6676, lng: 85.2778, facilities: ["shelter", "seating"] },
+    { id: 23, name: "Thamel", nameNepali: "थामेल", lat: 27.7156, lng: 85.3122, facilities: ["shelter", "seating"] },
+    { id: 24, name: "Dhapasi", nameNepali: "धापासी", lat: 27.7412, lng: 85.3241, facilities: ["shelter", "seating"] },
+    { id: 25, name: "Budhanilkantha", nameNepali: "बुढानिलकण्ठ", lat: 27.8015, lng: 85.3677, facilities: ["shelter", "seating"] },
+  
+    { id: 26, name: "Boudha", nameNepali: "बौद्ध", lat: 27.7216, lng: 85.3622, facilities: ["shelter", "seating"] },
+    { id: 27, name: "Jorpati", nameNepali: "जोरपाटी", lat: 27.7349, lng: 85.3692, facilities: ["shelter", "seating"] },
+    { id: 28, name: "Sankhamul", nameNepali: "शंखमूल", lat: 27.6782, lng: 85.3315, facilities: ["shelter", "seating"] },
+    { id: 29, name: "Tinkune", nameNepali: "तीनकुने", lat: 27.6847, lng: 85.3456, facilities: ["shelter", "seating"] },
+    { id: 30, name: "Kalanki Chowk", nameNepali: "कलंकी चोक", lat: 27.6932, lng: 85.2855, facilities: ["shelter", "seating"] },
+    { id: 31, name: "Swayambhu", nameNepali: "स्वयम्भू", lat: 27.7157, lng: 85.2906, facilities: ["shelter", "seating"] },
+    { id: 32, name: "Patan Dhoka", nameNepali: "पाटन ढोका", lat: 27.6767, lng: 85.3146, facilities: ["shelter", "seating"] },
+    { id: 33, name: "Imadol", nameNepali: "इमाडोल", lat: 27.6642, lng: 85.3497, facilities: ["shelter", "seating"] },
+    { id: 34, name: "Sanepa", nameNepali: "सानेपा", lat: 27.6731, lng: 85.3089, facilities: ["shelter", "seating"] },
+    { id: 35, name: "Baluwatar", nameNepali: "बालुवाटार", lat: 27.7263, lng: 85.3297, facilities: ["shelter", "seating"] }
+  ];
+  
+  const busRoutes = [
+    { id: 1, routeName: "Ratnapark - Koteshwor", routeNameNepali: "रत्नपार्क - कोटेश्वर", busNumber: "101", stops: [1, 7, 18, 10, 2, 15, 3], fare: 30, estimatedTime: 50, frequency: "5-10 mins" },
+    { id: 2, routeName: "Kalanki - Ratnapark", routeNameNepali: "कलंकी - रत्नपार्क", busNumber: "102", stops: [4, 21, 16, 17, 18, 7, 1], fare: 35, estimatedTime: 60, frequency: "8-12 mins" },
+    { id: 3, routeName: "Pulchowk - Satdobato", routeNameNepali: "पुल्चोक - सातदोबाटो", busNumber: "103", stops: [5, 11, 6, 12], fare: 25, estimatedTime: 30, frequency: "10-15 mins" },
+    { id: 4, routeName: "Ratnapark - Gongabu", routeNameNepali: "रत्नपार्क - गोंगबु", busNumber: "104", stops: [1, 7, 23, 20, 8, 24], fare: 30, estimatedTime: 45, frequency: "7-12 mins" },
+    { id: 5, routeName: "Balaju - Bhaktapur", routeNameNepali: "बालाजु - भक्तपुर", busNumber: "105", stops: [9, 20, 8, 14, 15, 3, 13], fare: 45, estimatedTime: 80, frequency: "10-15 mins" },
+    { id: 6, routeName: "Maitighar - Satdobato", routeNameNepali: "मैतीघर - सातदोबाटो", busNumber: "106", stops: [10, 2, 11, 5, 6, 12], fare: 25, estimatedTime: 40, frequency: "10-15 mins" },
+    { id: 7, routeName: "Jawalakhel - Lagankhel", routeNameNepali: "जावलाखेल - लगनखेल", busNumber: "107", stops: [11, 5, 6], fare: 18, estimatedTime: 20, frequency: "10-15 mins" },
+    { id: 8, routeName: "Chabahil - Ratnapark", routeNameNepali: "चाबहिल - रत्नपार्क", busNumber: "108", stops: [14, 15, 19, 10, 1], fare: 20, estimatedTime: 30, frequency: "8-12 mins" },
+    { id: 9, routeName: "Kalanki - Kirtipur", routeNameNepali: "कलंकी - कीर्तिपुर", busNumber: "109", stops: [4, 21, 22], fare: 25, estimatedTime: 35, frequency: "10-15 mins" },
+    { id: 10, routeName: "Thamel - Sundhara", routeNameNepali: "थामेल - सुन्धारा", busNumber: "110", stops: [23, 1, 7], fare: 15, estimatedTime: 20, frequency: "10-15 mins" },
+    { id: 11, routeName: "Gongabu - Budhanilkantha", routeNameNepali: "गोंगबु - बुढानिलकण्ठ", busNumber: "111", stops: [8, 24, 25], fare: 35, estimatedTime: 40, frequency: "12-18 mins" },
+  
+    { id: 12, routeName: "Boudha - Jorpati", routeNameNepali: "बौद्ध - जोरपाटी", busNumber: "112", stops: [26, 27], fare: 15, estimatedTime: 15, frequency: "10-15 mins" },
+    { id: 13, routeName: "Ratnapark - Sankhamul", routeNameNepali: "रत्नपार्क - शंखमूल", busNumber: "113", stops: [1, 10, 28], fare: 20, estimatedTime: 25, frequency: "10-15 mins" },
+    { id: 14, routeName: "Tinkune - Koteshwor", routeNameNepali: "तीनकुने - कोटेश्वर", busNumber: "114", stops: [29, 3], fare: 10, estimatedTime: 10, frequency: "10-15 mins" },
+    { id: 15, routeName: "Kalanki Chowk - Swayambhu", routeNameNepali: "कलंकी चोक - स्वयम्भू", busNumber: "115", stops: [30, 31], fare: 12, estimatedTime: 12, frequency: "10-15 mins" },
+    { id: 16, routeName: "Patan Dhoka - Sanepa", routeNameNepali: "पाटन ढोका - सानेपा", busNumber: "116", stops: [32, 34], fare: 10, estimatedTime: 10, frequency: "10-15 mins" },
+    { id: 17, routeName: "Baluwatar - Chabahil", routeNameNepali: "बालुवाटार - चाबहिल", busNumber: "117", stops: [35, 14], fare: 15, estimatedTime: 15, frequency: "10-15 mins" },
+    { id: 18, routeName: "Imadol - Satdobato", routeNameNepali: "इमाडोल - सातदोबाटो", busNumber: "118", stops: [33, 12], fare: 12, estimatedTime: 15, frequency: "10-15 mins" }
+  ];
+  
+  module.exports = { busStops, busRoutes}
