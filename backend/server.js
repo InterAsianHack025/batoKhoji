@@ -1,4 +1,4 @@
-// server.js
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
@@ -24,7 +24,7 @@ const pool = new Pool({
     host: process.env.DB_HOST,
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
+    port: Number(process.env.DB_PORT),
 });
 
 // Testing DB connection
@@ -32,6 +32,12 @@ pool.connect((err, client, release) => {
     if (err) return console.error("Error connecting to DB", err.stack);
     console.log("Connected to PostgreSQL");
     release();
+});
+
+const PORT = process.env.PORT || 5001;
+
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
 
