@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   Bell,
@@ -309,9 +308,9 @@ const Notifications = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 relative">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b sticky top-0 z-40">
+      <div className="bg-white shadow-sm border-b sticky top-0 z-20">
         <div className="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Bell className="w-6 h-6 text-blue-600" />

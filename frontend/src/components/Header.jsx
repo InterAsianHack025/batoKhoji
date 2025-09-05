@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import moreIcon from "../assets/icon-more.png";
 import { useTranslation } from "react-i18next";
+import MenuBar from "./MenuBar";
 
 const Header = () => {
-  const { t, i18n } = useTranslation();//harina
+  const { t, i18n } = useTranslation(); //harina
   const [showSidebar, setShowSidebar] = useState(false);
 
   // const [language, setLanguage] = useState("English");
@@ -14,13 +15,11 @@ const Header = () => {
   //   i18n.changeLanguage(newLang);//harina
   // };
 
-   // Toggle between English and Nepali
+  // Toggle between English and Nepali
   const toggleLanguage = () => {
-
     const newLang = i18n.language === "en" ? "ne" : "en";
     i18n.changeLanguage(newLang);
   };
-
 
   // // Text dictionary for both languages
   // const texts = {
@@ -52,41 +51,8 @@ const Header = () => {
         >
           <img src={moreIcon} alt={t.moreAlt} className="w-8 h-7" />
         </button>
-        {/* Sliding sidebar */}
-        <div
-          className={`fixed top-19 left-0 bottom-0 z-10 h-full w-64 bg-[rgb(5,150,104)] text-white transform transition-transform duration-300 ${
-            showSidebar ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-          {/* Content inside sidebar */}
-          <div className="p-4">
-            <h2 className="mb-4">{t("header.menu")}</h2>
-            <ul className="space-y-2">
-               <li>
-                <a href="#" className="hover:underline">
-                  {t("header.about")}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                {t("header.services")}
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                   {t("header.contact")}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
 
-        {showSidebar && (
-          <div
-            onClick={() => setShowSidebar(false)}
-            className="fixed inset-0 z-0"
-          ></div>
-        )}
+        <MenuBar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
 
         {/* Logo + Title */}
         <div className="flex items-center">
@@ -100,7 +66,7 @@ const Header = () => {
               {t("header.title")}
             </h1>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg p-1 text-green-100">
-              {t("header.tagline")} 
+              {t("header.tagline")}
             </p>
           </div>
         </div>
@@ -110,7 +76,7 @@ const Header = () => {
           onClick={toggleLanguage}
           className="bg-white/10 hover:bg-white/20 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-normal"
         >
-          {t("header.button")} 
+          {t("header.button")}
         </button>
       </div>
     </header>
