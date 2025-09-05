@@ -8,11 +8,15 @@
     "menu": "Menu",
     "about": "About",
     "services": "Services",
+<<<<<<< HEAD
     "contact": "Contact",
     "settings": "Settings",
     "help": "Help",
     "feedback": "Feedback",
     "profile": "Profile"
+=======
+    "contact": "Contact"
+>>>>>>> d439624 (Dashboard)
   },
 
   "navbar": {
@@ -24,6 +28,7 @@
     "recentTrips": "Recent Trips",
     "calendarReminder": "Calendar Reminder",
     "savedPlace": "Saved Places"
+<<<<<<< HEAD
   },
 
   "pages": {
@@ -190,5 +195,7 @@
       "security": "Security",
       "logout": "Logout"
     }
+=======
+>>>>>>> d439624 (Dashboard)
   }
 }

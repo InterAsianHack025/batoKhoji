@@ -18,6 +18,7 @@ import RoutesPage from "./pages/Routes";
 import Map from "./pages/Map";
 // import Notifications from "./pages/Notifications";
 
+<<<<<<< HEAD
 import About from "./components/MenuRoutes/About";
 import Services from "./components/MenuRoutes/Service";
 import Contact from "./components/MenuRoutes/Contact";
@@ -26,6 +27,10 @@ import Help from "./components/MenuRoutes/Help";
 import Feedback from "./components/MenuRoutes/Feedback";
 import Profile from "./components/MenuRoutes/Profile";
 function App() {
+=======
+
+const App = () => {
+>>>>>>> d439624 (Dashboard)
   return (
     <Router>
       {/* <NotificationProvider> */}

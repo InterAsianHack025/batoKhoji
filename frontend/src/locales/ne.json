@@ -8,11 +8,15 @@
     "menu": "मेनु",
     "about": "बारेमा",
     "services": "सेवाहरू",
+<<<<<<< HEAD
     "contact": "सम्पर्क",
     "settings": "सेटिङहरू",
     "help": "मद्दत",
     "feedback": "प्रतिक्रिया",
     "profile": "प्रोफाइल"
+=======
+    "contact": "सम्पर्क"
+>>>>>>> d439624 (Dashboard)
   },
   "navbar": {
     "home": "मुख्य पृष्ठ",
@@ -23,6 +27,7 @@
     "recentTrips": "भर्खरको यात्रा",
     "calendarReminder": "क्यालेन्डर रिमाइन्डर",
     "savedPlace": "सुरक्षित स्थानहरू"
+<<<<<<< HEAD
   },
   "pages": {
     "home": "मुख्य पृष्ठ",
@@ -181,5 +186,7 @@
       "security": "सुरक्षा",
       "logout": "लगआउट"
     }
+=======
+>>>>>>> d439624 (Dashboard)
   }
 }

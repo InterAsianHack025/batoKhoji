@@ -12,6 +12,8 @@ import {
   Zap,
   Phone,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 
 const LiveBusTracking = () => {
   const navigate = useNavigate();
