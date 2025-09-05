@@ -9,6 +9,7 @@ import CalendarReminder from "./components/CalendarReminder";
 import SavedPlace from "./components/SavedPlace";
 import LiveBusTracking from "./components/LiveBusTracking";
 import RecentTrips from "./components/RecentTrips";
+import Map from "./pages/Map";
 
 import Home from "./pages/Home";
 import Map from "./pages/Map";
@@ -23,6 +24,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<RecentTrips />} />
+
         <Route path="/route-planner" element={<RoutePlanner />} />
         <Route path="/calendar-reminder" element={<CalendarReminder />} />
         <Route path="/saved-place" element={<SavedPlace />} />

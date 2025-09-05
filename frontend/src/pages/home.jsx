@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import QuickActions from "../components/ QuickActions";
 import RoutePlanner from "../components/RoutePlanner";
-import RecentTrips from "../components/RecentTrips";
+import QuickActions from "../components/QuickActions";
+
 
 const Home = () => {
   const { t } = useTranslation();
@@ -12,8 +13,9 @@ const Home = () => {
       <h1 className="text-2xl font-bold mb-4">{t("pages.home")}</h1>
       <RoutePlanner />
       {view === "home" && <QuickActions showPage={setView} />}
+    
+      
     </div>
   );
 };
-
 export default Home;
