@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// HTTP & Socket.IO server
+//Using HTTP & Socket.IO server
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
@@ -27,10 +27,11 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 });
 
-// Test DB connection
+// Testing DB connection
 pool.connect((err, client, release) => {
     if (err) return console.error("Error connecting to DB", err.stack);
     console.log("Connected to PostgreSQL");
     release();
 });
+
 
