@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import logo from "../assests/logo.png";
-import moreIcon from "../assests/icon-more.png";
+import logo from "../assets/logo.png";
+import moreIcon from "../assets/icon-more.png";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
