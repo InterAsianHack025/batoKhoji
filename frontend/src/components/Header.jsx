@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png"; 
+import logo from "../assets/logo.png";
 import moreIcon from "../assets/icon-more.png";
 
 const Header = () => {
@@ -8,13 +8,35 @@ const Header = () => {
   return (
     <header className="bg-[rgb(5,150,104)] text-white shadow-lg sticky top-0 z-30">
       <div className="mx-auto px-4 py-0.5 flex items-center justify-between">
-        
         {/* Left Icon */}
         <button
           onClick={() => setShowSidebar(!showSidebar)}
           className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center hover:bg-green-500/30 rounded-lg"
         >
           <img src={moreIcon} alt="Menu" className="w-8 h-7" />
+        </button>
+
+        {/* Center: Logo + Title */}
+        <div className="flex-1 flex items-center justify-center">
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-18 h-20 sm:w-18 sm:h-20 md:w-24 md:h-28 pb-1 rounded-full object-cover drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]"
+          />
+          <div className="pt-2 ml-2">
+            <h1 className="font-bold sm:text-3xl md:text-4xl lg:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.9)]">
+              batoVetiyo
+            </h1>
+          </div>
+        </div>
+
+        {/* Right: Language Toggle */}
+        <button
+          id="languageToggle"
+          className="bg-white/10 hover:bg-white/20 px-3 py-2 rounded-lg text-sm font-medium"
+          aria-label="Toggle language"
+        >
+          English
         </button>
 
         {/* Sliding Sidebar */}
@@ -52,23 +74,6 @@ const Header = () => {
             className="fixed inset-0 z-0 bg-black/30"
           ></div>
         )}
-
-        {/* Logo + Title */}
-        <div className="flex items-center justify-center">
-          <img
-            src={logo}
-            alt="Logo"
-            className="w-18 h-20 sm:w-18 sm:h-20 md:w-24 md:h-28 pb-1 rounded-full object-cover drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]"
-          />
-          <div className="pt-2 ml-2">
-            <h1 className="font-bold sm:text-3xl md:text-4xl lg:text-5xl [text-shadow:0_2px_4px_rgba(0,0,0,0.9)]">
-              batoKhoji
-            </h1>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg p-1 text-green-100">
-              Explore. Discover. Navigate.
-            </p>
-          </div>
-        </div>
       </div>
     </header>
   );
