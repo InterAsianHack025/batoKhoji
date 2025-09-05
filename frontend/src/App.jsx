@@ -11,14 +11,13 @@ import SavedPlace from "./components/SavedPlace";
 import LiveBusTracking from "./components/LiveBusTracking";
 import RecentTrips from "./components/RecentTrips";
 import { useTranslation } from "react-i18next";
-// import { NotificationProvider } from "./components/NotificationContext";
+import { NotificationProvider } from "./components/NotificationContext";
 
-import Home from "./pages/Home";
+import Home from "./pages/home.jsx";
 import RoutesPage from "./pages/Routes";
 import Map from "./pages/Map";
-// import Notifications from "./pages/Notifications";
+import Notifications from "./pages/Notifications";
 
-<<<<<<< HEAD
 import About from "./components/MenuRoutes/About";
 import Services from "./components/MenuRoutes/Service";
 import Contact from "./components/MenuRoutes/Contact";
@@ -27,13 +26,9 @@ import Help from "./components/MenuRoutes/Help";
 import Feedback from "./components/MenuRoutes/Feedback";
 import Profile from "./components/MenuRoutes/Profile";
 function App() {
-=======
-
-const App = () => {
->>>>>>> d439624 (Dashboard)
   return (
     <Router>
-      {/* <NotificationProvider> */}
+      <NotificationProvider>
         <div className="App">
           <Header />
 
@@ -44,7 +39,7 @@ const App = () => {
               <Route path="/map" element={<Map />} />
               <Route path="/routes" element={<RoutesPage />} />
               {/* <Route path="routes/:id" element={<RoutePage />} /> */}
-              {/* <Route path="/notifications" element={<Notifications />} /> */}
+              <Route path="/notifications" element={<Notifications />} />
               <Route path="/live-bus" element={<LiveBusTracking />} />
               <Route path="/recent-trips" element={<RecentTrips />} />
               <Route path="/calendar-reminder" element={<CalendarReminder />} />
@@ -66,7 +61,7 @@ const App = () => {
           {/* Floating Chat Widget */}
           {/* <ChatWidget /> */}
         </div>
-      {/* </NotificationProvider> */}
+      </NotificationProvider>
     </Router>
   );
 }

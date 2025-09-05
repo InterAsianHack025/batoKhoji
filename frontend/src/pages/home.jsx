@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import RoutePlanner from "../components/RoutePlanner";
 import QuickActions from "../components/QuickActions";
-
 import RecentTrips from "../components/RecentTrips";
 import { useTranslation } from "react-i18next";
 
