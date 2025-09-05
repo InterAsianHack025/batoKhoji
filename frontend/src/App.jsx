@@ -10,21 +10,30 @@ import SavedPlace from "./components/SavedPlace";
 import LiveBusTracking from "./components/LiveBusTracking";
 import RecentTrips from "./components/RecentTrips";
 
+import Home from "./pages/Home";
+import Map from "./pages/Map";
+import RoutesPage from "./pages/Routes";
+
 const App = () => {
   return (
     <Router>
       <Header />
-      <Navbar />
+      <RoutePlanner />
       <QuickActions />
+      <Navbar />
       <Routes>
         <Route path="/" element={<RecentTrips />} />
         <Route path="/route-planner" element={<RoutePlanner />} />
         <Route path="/calendar-reminder" element={<CalendarReminder />} />
         <Route path="/saved-place" element={<SavedPlace />} />
         <Route path="/live-bus-tracking" element={<LiveBusTracking />} />
+
+        <Route path="/map" element={<Map />} />
+
+        <Route path="/routes" element={<Routes />} />
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
