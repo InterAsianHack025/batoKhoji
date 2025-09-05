@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png"; // Ensure folder name is correct: assets
+import logo from "../assets/logo.png"; 
 import moreIcon from "../assets/icon-more.png";
 
 const Header = () => {
