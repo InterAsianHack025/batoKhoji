@@ -167,7 +167,7 @@ const QuickActions = () => {
     <div className="mb-6">
       <h3 className="text-base font-semibold text-gray-700 mb-3">
         <FontAwesomeIcon icon={faRocket} className="text-green-600 mr-2" />
-        {t("quickActions.title")}
+        {t("Quick Actions")}
       </h3>
 
       {/* Quick Action Buttons */}
@@ -181,7 +181,7 @@ const QuickActions = () => {
             className="text-2xl text-gray-600 mb-2"
           />
           <p className="text-sm font-medium text-gray-700">
-            {t("quickActions.liveBus")}
+            {t("Live Bus Tracking")}
           </p>
         </button>
 
@@ -194,7 +194,7 @@ const QuickActions = () => {
             className="text-2xl text-gray-500 bg-white rounded-full"
           />
           <p className="text-sm font-medium text-gray-700">
-            {t("Quick Actions")}
+            {t("Recent Trips")}
           </p>
         </button>
       </div>
@@ -209,7 +209,7 @@ const QuickActions = () => {
             className="text-2xl text-gray-600 mb-2"
           />
           <p className="text-sm font-medium text-gray-700">
-            {t("quickActions.savedPlace")}
+            {t("Saved Places")}
           </p>
         </button>
 
@@ -222,7 +222,7 @@ const QuickActions = () => {
             className="text-2xl text-gray-600 mb-2"
           />
           <p className="text-sm font-medium text-gray-700">
-            {t("quickActions.calendarReminder")}
+            {t("CalendarReminder")}
           </p>
         </button>
       </div>
@@ -235,7 +235,7 @@ const QuickActions = () => {
               icon={faMapMarkerAlt}
               className="text-green-600 mr-2"
             />
-            {t("quickActions.nearbyBusStops")}
+            {t("Nearby Bus Stops")}
           </h3>
           {loading && <div className="text-xs text-gray-500">Loading...</div>}
         </div>
@@ -343,7 +343,7 @@ const QuickActions = () => {
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-base font-semibold text-gray-700 flex items-center">
             <FontAwesomeIcon icon={faRoute} className="text-green-600 mr-2" />
-            {t("quickActions.popularRoutes")}
+            {t("Popular Routes")}
           </h3>
         </div>
 
