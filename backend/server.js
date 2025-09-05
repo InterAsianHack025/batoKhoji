@@ -5,6 +5,8 @@ const { Pool } = require("pg");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const axios = require("axios");
+require('dotenv').config(); // Load .env variables
+
 
 const app = express();
 app.use(cors());

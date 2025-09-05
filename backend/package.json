@@ -9,7 +9,10 @@
     "i18next-http-backend": "^3.0.2",
     "node": "^20.19.5",
     "pg": "^8.16.3",
+<<<<<<< HEAD
     "react-i18next": "^15.7.3",
+=======
+>>>>>>> 2982e32 (Added)
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1"
   },
