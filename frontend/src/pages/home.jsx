@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import RoutePlanner from "../components/RoutePlanner";
 import QuickActions from "../components/QuickActions";
-<<<<<<< HEAD
-=======
+
 import RecentTrips from "../components/RecentTrips";
 import { useTranslation } from "react-i18next";
-
->>>>>>> cf71eae (Language toggle)
 
 const Home = () => {
   const { t } = useTranslation();
