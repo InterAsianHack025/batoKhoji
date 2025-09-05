@@ -1,0 +1,16 @@
+{
+  "header": {
+    "appName": "बाटोवेटियो",
+    "languageToggle": "नेपाली"
+  },
+  "menu": {
+    "menu": "मेनु",
+    "home": "गृहपृष्ठ",
+    "about": "हाम्रोबारे",
+    "services": "सेवाहरू",
+    "contact": "सम्पर्क",
+    "map": "नक्सा",
+    "routes": "मार्गहरू",
+    "notification": "सूचना"
+  }
+}

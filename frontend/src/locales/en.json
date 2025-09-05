@@ -1,0 +1,16 @@
+{
+  "header": {
+    "appName": "batoVetiyo",
+    "languageToggle": "English"
+  },
+  "menu": {
+    "menu": "Menu",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "map": "Map",
+    "routes": "Routes",
+    "notification": "Notification"
+  }
+}

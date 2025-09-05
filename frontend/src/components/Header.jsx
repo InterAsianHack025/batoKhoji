@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import moreIcon from "../assets/icon-more.png";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+   const { t, i18n } = useTranslation();
   const [showSidebar, setShowSidebar] = useState(false);
   const { t, i18n } = useTranslation(); //harina
   const [showSidebar, setShowSidebar] = useState(false);
@@ -39,6 +41,12 @@ const Header = () => {
   // };
 
   // const t = texts[language];
+
+//language toogle key
+ const toggleLanguage = () => {
+    const newLang = i18n.language === "en" ? "ne" : "en";
+    i18n.changeLanguage(newLang);
+  };
 
   return (
     <header className="bg-[rgb(5,150,104)] text-white shadow-lg sticky top-0 z-30">
@@ -108,7 +116,10 @@ const Header = () => {
             className="fixed inset-0 z-0 bg-black/30"
           ></div>
         )}
+
       </div>
+
+      
     </header>
   );
 };
