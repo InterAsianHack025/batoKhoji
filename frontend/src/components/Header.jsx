@@ -54,7 +54,7 @@ const Header = () => {
         )}
 
         {/* Logo + Title */}
-        <div className="flex items-center">
+        <div className="flex items-center justify-center">
           <img
             src={logo}
             alt="Logo"
