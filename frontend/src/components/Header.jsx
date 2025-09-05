@@ -4,6 +4,41 @@ import moreIcon from "../assets/icon-more.png";
 
 const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const { t, i18n } = useTranslation(); //harina
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  // const [language, setLanguage] = useState("English");
+
+  // const toggleLanguage = () => {
+  //   setLanguage((prev) => (prev === "English" ? "नेपाली" : "English"));
+  //   i18n.changeLanguage(newLang);//harina
+  // };
+
+  // Toggle between English and Nepali
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "en" ? "ne" : "en";
+    i18n.changeLanguage(newLang);
+  };
+
+  // // Text dictionary for both languages
+  // const texts = {
+  //   English: {
+  //     title: "BatoVetiyo",
+  //     tagline: "I was lost, now I found the way",
+  //     button: "English",
+  //     moreAlt: "More",
+  //     logoAlt: "Logo",
+  //   },
+  //   नेपाली: {
+  //     title: "बाटो भेटियो",
+  //     tagline: "म हराएको थिएँ, अब बाटो भेटें",
+  //     button: "नेपाली",
+  //     moreAlt: "थप",
+  //     logoAlt: "लोगो",
+  //   },
+  // };
+
+  // const t = texts[language];
 
   return (
     <header className="bg-[rgb(5,150,104)] text-white shadow-lg sticky top-0 z-30">
@@ -32,11 +67,10 @@ const Header = () => {
 
         {/* Right: Language Toggle */}
         <button
-          id="languageToggle"
-          className="bg-white/10 hover:bg-white/20 px-3 py-2 rounded-lg text-sm font-medium"
-          aria-label="Toggle language"
+          onClick={toggleLanguage}
+          className="bg-white/10 hover:bg-white/20 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-normal"
         >
-          English
+          {t("header.button")}
         </button>
 
         {/* Sliding Sidebar */}

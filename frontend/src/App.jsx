@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import QuickActions from "./components/ QuickActions";
 import RoutePlanner from "./components/RoutePlanner";
 import CalendarReminder from "./components/CalendarReminder";
 import SavedPlace from "./components/SavedPlace";
@@ -14,6 +15,7 @@ const App = () => {
     <Router>
       <Header />
       <Navbar />
+      <QuickActions />
       <Routes>
         <Route path="/" element={<RecentTrips />} />
         <Route path="/route-planner" element={<RoutePlanner />} />

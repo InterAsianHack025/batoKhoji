@@ -12,7 +12,7 @@ const Navbar = () => {
     { path: "/", icon: faHome, label: t("Home") || "Home" },
     { path: "/map", icon: faMap, label: t("Map") || "Map" },
     { path: "/routes", icon: faRoute, label: t("Routes") || "Routes" },
-    { path: "/profile", icon: faBell, label: t("Notification") || "Notification" },
+    { path: "/notification", icon: faBell, label: t("Notification") || "Notification" },
   ];
 
   return (
