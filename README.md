@@ -88,14 +88,14 @@ Open the frontend at the address printed by Vite (usually http://localhost:5173)
 
 ---
 
-## 🔍 How to Test
+##  How to Test
 - Manual: use the UI to plan routes, verify stops, and test language toggles
 - Backend: test API endpoints in `/backend/bus_routes.js` using Postman or curl
 
 
 ---
 
-##  Hackathon Acknowledgement
+## Hackathon Acknowledgement
 Built at **AsianHack 2025** hosted by the **Asian School of Science and Management**  a collaborative effort to improve Kathmandu’s public transport experience.
 
 ---
